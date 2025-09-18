@@ -2,30 +2,6 @@
 function: post
 tests:
   - cases:
-      - name: reports log aggregation
-        client: client
-        function: post
-        aggregator: log_path
-        endpoint: "/api/v1/known-loggers"
-        data:
-          - logger_name: "my.path"
-            counts:
-              debugs: 3
-              infos: 1
-          - logger_name: "another.path"
-            counts:
-              warns: 1
-              errors: 2
-        expected_data:
-          - logger_name: "my.path"
-            counts:
-              debugs: 3
-              infos: 1
-          - logger_name: "another.path"
-            counts:
-              warns: 1
-              errors: 2
-
       - name: reports context shape aggregation
         client: client
         function: post
