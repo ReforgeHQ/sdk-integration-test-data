@@ -48,10 +48,10 @@ tests:
       expected:
         status: raise
         error: initialization_timeout
-        message: "Prefab couldn't initialize in 0.01 second timeout. Trying to fetch key `any-key`."
+        message: "Reforge SDK couldn't initialize in 0.01 second timeout. Trying to fetch key `any-key`."
       client_overrides:
         initialization_timeout_sec: 0.01
-        prefab_api_url: "https://app.staging-prefab.cloud"
+        prefab_api_url: "https://app.staging-prefab.cloud" # not the api url
         on_init_failure: :raise
 
     - name: raises an error if a config is provided by a missing environment variable
