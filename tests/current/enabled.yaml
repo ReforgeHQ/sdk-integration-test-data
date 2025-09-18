@@ -543,7 +543,7 @@ tests:
         expected:
           value: false
 
-      - name: returns false for PROP_BEFORE rule using current-time relative to 2050-01-01
+      - name: returns false for PROP_BEFORE rule using prefab.current-time relative to 2050-01-01
         client: feature_flag_client
         function: enabled
         input:
@@ -551,6 +551,13 @@ tests:
         expected:
           value: true
 
+      - name: returns false for PROP_BEFORE rule using reforge-sdk.current-time relative to 2050-01-01
+        client: feature_flag_client
+        function: enabled
+        input:
+          flag: "feature-flag.before.current-time.reforge"
+        expected:
+          value: true
 
         #####################################
         ## PROP_AFTER  ##
@@ -616,7 +623,7 @@ tests:
         expected:
           value: false
 
-      - name: returns false for PROP_AFTER rule using current-time relative to 2025-01-01
+      - name: returns false for PROP_AFTER rule using prefab.current-time relative to 2025-01-01
         client: feature_flag_client
         function: enabled
         input:
@@ -624,6 +631,13 @@ tests:
         expected:
           value: true
 
+      - name: returns false for PROP_AFTER rule using reforge-sdk.current-time relative to 2025-01-01
+        client: feature_flag_client
+        function: enabled
+        input:
+          flag: "feature-flag.after.current-time.reforge"
+        expected:
+          value: true
 
         #####################################
         ## PROP_LESS_THAN  ##
